@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #DA00FF;
+    min-height: 5rem;
+}
+
+li {
+    border-radius: 50%;
+    padding: 1.5%;
+}
+
+a {
+    text-decoration: none;
+    color: #FF0025;
+    background-color: #00FFDA;
+    font-size: clamp(1rem, 2.5vh, 1.5rem);
+    padding: .5rem 1rem;
+    border-radius: 1rem 1rem 1rem 0;
+    transition: all .35s ease-in-out;
+}
+a:hover {
+    border-radius: 0 0 0 1rem;
+    opacity: .8;
+}
+
+.rotate-animation {
+    height: 10rem;
+    width: 10rem;
+    display: inline-block;
+    margin: 15% calc(15% - 5rem);
+    background-color: #DA00FF;
+    animation: rotate 1.75s infinite ease-in-out alternate;
+}
+
+.opposite {
+    animation: rotate 1.75s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes rotate {
+    0% {
+        border-radius: 0 0 0 0;
+        transform: rotate(180deg);
+    }
+
+    25% {
+        border-radius: 50% 0 0 0;
+    }
+
+    50% {
+        border-radius: 50% 50% 0 0;
+    }
+
+    75% {
+        border-radius: 50% 50% 50% 0;
+    }
+
+    100% {
+        border-radius: 50%;
+        background-color: #00FFDA;
+    }
+}
+
+/*3rd exercise*/
+
+.hello-animation {
+    width: 10rem;
+    margin: calc(100vh / 2 - 5rem) auto;
+    animation: pulse 2s infinite ease-in-out alternate;
+    overflow: initial;
+
+}
+
+.hello-text {
+    position: relative;
+    -webkit-text-stroke: .5px #DA00FF;
+    color: #fff;
+    text-shadow:
+        2px 2px 0 #DA00FF;
+    font-weight: 700;
+    font-size: 3rem;
+    z-index: 1;
+    overflow: initial;
+
+}
+
+.hello-span {
+    position: absolute;
+    color: #00FFDA;
+    top: -2.5rem;
+    left: 2.75rem;
+    font-size: 6rem;
+    z-index: -1;
+    transform: rotate(30deg);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.25);
+    }
+
+    100% {
+        transform: scale(2.5);
+    }
+}
+
+/*2nd exercise*/
+.ul-sky {
+    background-color: skyblue;
+}
+
+.sky,
+.grass,
+.road {
+    min-height: 29.9vh;
+    width: 100vw;
+}
+
+.sky {
+    background-color: skyblue;
+}
+
+.grass {
+    background-color: rgba(0, 128, 0, 0.438);
+}
+
+.road {
+    background-color: gray;
+    border-top: .25rem solid rgba(196, 196, 196, 0.438);
+    position: relative;
+    overflow: initial;
+}
+
+.line {
+    height: 15vh;
+    width: 100vw;
+    border-bottom: .5rem dashed white;
+}
+.cloud{
+    width: 200px;
+    opacity: .75;
+    margin-top: 1rem;
+    animation: wind 55s both infinite linear reverse;
+}
+.cloud-9{
+    animation: wind 35s both infinite linear reverse;
+}
+.mario{
+    position: absolute;
+    top: -2.5rem;
+    animation: drive 3s both infinite linear, bumps 1s .5s ease 2;
+}
+
+.luigi{
+    position: absolute;
+    top: 3rem;
+    animation: drive 4s both infinite linear;
+}
+
+@keyframes drive{
+    from{
+        transform: translateX(-10vw);
+    }
+    to{
+        transform: translateX(110vw);
+    }
+}
+
+@keyframes bumps{
+    0%{
+        top: -2.5rem;
+    }
+    50%{
+        top: -6.5rem;
+    }
+    100%{
+        top: -2.5rem;
+    }
+}
+
+@keyframes wind{
+    from{
+        transform: translateX(-10vw);
+    }
+    to{
+        transform: translateX(calc(100vw - 200px));
+    }
+}
